@@ -2315,6 +2315,20 @@ files = [
 tests = ["pytest"]
 
 [[package]]
+name = "py3langid"
+version = "0.2.2"
+description = "Fork of the language identification tool langid.py, featuring a modernized codebase and faster execution times."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "py3langid-0.2.2-py3-none-any.whl", hash = "sha256:a5460ccc565c7b6a7a0e72f42236900b810e73c065a1b769a69fa9d9cff13f00"},
+    {file = "py3langid-0.2.2.tar.gz", hash = "sha256:b4de01dad7e701f29d216a0935e85e096cc8675903d23ea8445b2bb5f090b96f"},
+]
+
+[package.dependencies]
+numpy = "*"
+
+[[package]]
 name = "pycparser"
 version = "2.22"
 description = "C parser in Python"
@@ -2476,6 +2490,17 @@ python-dotenv = ">=0.21.0"
 azure-key-vault = ["azure-identity (>=1.16.0)", "azure-keyvault-secrets (>=4.8.0)"]
 toml = ["tomli (>=2.0.1)"]
 yaml = ["pyyaml (>=6.0.1)"]
+
+[[package]]
+name = "pydub"
+version = "0.25.1"
+description = "Manipulate audio with an simple and easy high level interface"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pydub-0.25.1-py2.py3-none-any.whl", hash = "sha256:65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6"},
+    {file = "pydub-0.25.1.tar.gz", hash = "sha256:980a33ce9949cab2a569606b65674d748ecbca4f0796887fd6f46173a7b0d30f"},
+]
 
 [[package]]
 name = "pygments"
@@ -3567,4 +3592,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.11"
-content-hash = "4692326aa5bbf951e036c99ebdf6e6c66a418f7a38a1317db0dffbf08008079e"
+content-hash = "02a1b535bda0325aa112d0b52983998fed92ab07a373b9b52fcd8d257febe922"
