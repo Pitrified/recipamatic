@@ -1,8 +1,9 @@
 """Chat OpenAI configuration."""
 
-from langchain_core.utils.utils import secret_from_env
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field, SecretStr
+
+from recipamatic.utils.langchain_ import get_secret_from_env
 
 
 class ChatOpenAIConfig(BaseModel):
@@ -18,7 +19,7 @@ class ChatOpenAIConfig(BaseModel):
 DEFAULT_CHAT_OPENAI_CONFIG = ChatOpenAIConfig(
     model="gpt-4o-mini",
     temperature=0.2,
-    api_key=secret_from_env("OPENAI_API_KEY")(),
+    api_key=get_secret_from_env("OPENAI_API_KEY"),
 )
 
 
