@@ -1,0 +1,3 @@
+# Recipamatic
+
+## IDEAs
