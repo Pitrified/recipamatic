@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "recipamatic", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "~3.13"
+python = "~3.11"
 loguru = "^0.7.3"
 rich = "^13.9.4"
 tqdm = "^4.67.1"
@@ -17,6 +17,10 @@ nbformat = "^5.10.4"
 langchain = "^0.3.12"
 langchain-community = "^0.3.12"
 langchain-openai = "^0.2.12"
+instaloader = "^4.14"
+jsons = "^1.6.3"
+llvmlite = "^0.43.0"
+openai-whisper = "^20240930"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.3"
