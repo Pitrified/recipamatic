@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate
 
-from recipamatic.data_model.recipe_core import RecipeCore
+from recipamatic.cook.recipe_core.recipe_core import RecipeCore
 from recipamatic.langchain_openai_.chat_openai_config import ChatOpenAIConfig
 
 transcriber_template = """You have a text recipe. \
