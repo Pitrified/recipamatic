@@ -32,6 +32,8 @@ class RecipamaticPaths:
         self.cache_fol = self.root_fol / "cache"
         # data
         self.data_fol = self.root_fol / "data"
+        # ig data
+        self.ig_fol = self.data_fol / "ig"
         # static
         self.static_fol = self.root_fol / "static"
 
