@@ -7,3 +7,31 @@
 1. [Identify languages](./scratch_space/langid_/identify.ipynb)
 
 ## IDEAs
+
+### Input
+
+#### Live
+
+1. Save the step as audio notes as you cook
+1. Generate a recipe
+
+#### Download
+
+1. Download a post
+
+### Edit
+
+1. Show a recipe
+1. Input with audio the requested edit
+1. Show the workings of the app
+    1. Which tool was used
+    1. Which section was edited
+    1. Which was the target instruction
+1. Show the edited recipe side by side
+
+#### Edit tools
+
+1. Edit step
+1. Add step
+1. Change ingredient?
+1. Split into preparations?
