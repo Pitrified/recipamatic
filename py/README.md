@@ -22,12 +22,13 @@
 ### Edit
 
 1. Show a recipe
-1. Input with audio the requested edit
+1. Input with audio the requested edit, should identify the step
 1. Show the workings of the app
     1. Which tool was used
     1. Which section was edited
     1. Which was the target instruction
-1. Show the edited recipe side by side
+1. Show the edited recipe side by side, also highlighting the changes
+1. Button to accept the edit or reject it, record a clarification and try again
 
 #### Edit tools
 
