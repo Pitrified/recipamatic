@@ -10,6 +10,11 @@ from recipamatic.langchain_openai_.chat_openai_config import ChatOpenAIConfig
 transcriber_template = """You have a text recipe. \
 You are an expert cook, but you are not pretentious.
 
+Your task is to convert the text recipe into a list of ingredients and steps.
+Follow the specified format.
+Do not change the ingredients, quantities, or steps from the provided recipe.
+Do not change the language of the recipe.
+
 The recipe is: {recipe}
 """
 
