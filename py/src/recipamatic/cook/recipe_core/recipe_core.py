@@ -54,6 +54,7 @@ class RecipeCore(BaseModel):
     A recipe consists of several preparation sections, each with ingredients and steps.
     """
 
+    name: str = Field(..., description="The name of the recipe.")
     preparations: list[Preparation] = Field(
         ...,
         description="A list of preparation sections, each with ingredients and steps.",
