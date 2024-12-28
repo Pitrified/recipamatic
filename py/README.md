@@ -33,6 +33,8 @@
 #### Edit tools
 
 1. Edit step
+    If the edit tool does not work well, ask just one step as an output
+    Either edited or new
 1. Add step
 1. Change ingredient?
 1. Split into preparations?
