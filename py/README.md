@@ -6,6 +6,14 @@
 1. [Transcribe audio files](./scratch_space/whisper_/transcribe.ipynb)
 1. [Identify languages](./scratch_space/langid_/identify.ipynb)
 
+## Backend
+
+Run the FastAPI server with:
+
+```bash
+fastapi dev src/recipamatic/api/backend.py
+```
+
 ## IDEAs
 
 ### Input
