@@ -9,6 +9,9 @@
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: #fff;
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
   .recipe-name {
     font-size: 1.25rem;
@@ -24,8 +27,8 @@
   }
 </style>
 
-<div class="recipe-card">
+<a class="recipe-card" href={`/recipes/${recipe.code}/show`}>
   <div class="recipe-name">{recipe.name}</div>
   <div class="recipe-source">Source: {recipe.source}</div>
   <div class="recipe-code">Code: {recipe.code}</div>
-</div>
+</a>

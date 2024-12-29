@@ -25,3 +25,15 @@ def load_recipe_list() -> list[RecipeInfoMini]:
         recipe_list.append(recipe_info)
 
     return recipe_list
+
+
+def load_recipe(code: str) -> RecipeCore | None:
+    """Get a recipe by code."""
+    recipes_fol = get_recipamatic_paths().recipes_fol
+    recipe_fol = recipes_fol / code
+    if not recipe_fol.exists():
+        return None
+
+    rc_fp = recipe_fol / f"recipe_core.json"
+    rc = RecipeCore.model_validate_json(rc_fp.read_text())
+    return rc
