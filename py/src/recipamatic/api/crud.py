@@ -8,9 +8,9 @@ from recipamatic.config.recipamatic_config import get_recipamatic_paths
 from recipamatic.cook.recipe_core.recipe_core import RecipeCore
 
 
-def recipe_list() -> list[RecipeInfoMini]:
+def load_recipe_list() -> list[RecipeInfoMini]:
     """Get the list of recipes."""
-    recipes_fol = get_recipamatic_paths().data_fol / "recipes"
+    recipes_fol = get_recipamatic_paths().recipes_fol
 
     recipe_list = []
     for recipe_fol in recipes_fol.iterdir():

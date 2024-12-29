@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from recipamatic.api.crud import recipe_list
+from recipamatic.api.crud import load_recipe_list
 from recipamatic.api.models import RecipeInfoMini, RecipeSource
 
 app = FastAPI()
@@ -27,4 +27,4 @@ app.add_middleware(
 @app.get("/recipe_list", response_model=list[RecipeInfoMini])
 async def get_recipe_list() -> list[RecipeInfoMini]:
     """Endpoint to get the list of recipes."""
-    return recipe_list()
+    return load_recipe_list()

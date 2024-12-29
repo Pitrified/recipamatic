@@ -34,6 +34,8 @@ class RecipamaticPaths:
         self.data_fol = self.root_fol / "data"
         # ig data
         self.ig_fol = self.data_fol / "ig"
+        # parsed recipes
+        self.recipes_fol = self.data_fol / "recipes"
         # static
         self.static_fol = self.root_fol / "static"
 
