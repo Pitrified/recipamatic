@@ -2,6 +2,7 @@
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from loguru import logger as lg
 
 from recipamatic.api.crud import load_recipe, load_recipe_list
 from recipamatic.api.models import RecipeInfoMini, RecipeSource
@@ -28,12 +29,14 @@ app.add_middleware(
 @app.get("/recipe_list", response_model=list[RecipeInfoMini])
 async def get_recipe_list() -> list[RecipeInfoMini]:
     """Endpoint to get the list of recipes."""
+    lg.debug(f"get_recipe_list")
     return load_recipe_list()
 
 
 @app.get("/recipes/{code}/show", response_model=RecipeCore)
 async def show_recipe(code: str) -> RecipeCore:
     """Endpoint to get a specific recipe by code."""
+    lg.debug(f"show_recipe: code={code}")
     recipe = load_recipe(code)
     if recipe is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
