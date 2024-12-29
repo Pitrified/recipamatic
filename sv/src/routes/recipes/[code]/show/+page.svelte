@@ -4,7 +4,7 @@
   import { API_BASE_URL } from '$lib/constants';
   import type { RecipeCore } from '$lib/models/recipe_core';
   import { onMount } from 'svelte';
-  import RecipeShow from '../../../../components/recipe_core/RecipeShow.svelte';
+  import RecipeShow from '$components/recipe_core/RecipeShow.svelte';
 
   let recipe: RecipeCore;
   let error: string | null = null;
