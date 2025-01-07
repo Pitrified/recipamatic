@@ -27,7 +27,7 @@ class RecipeNote(BaseModel):
         description="The timestamp when the note was taken.",
     )
     notes: list[Note] = Field(
-        ...,
+        default_factory=list,
         description="A list of notes for the recipe.",
     )
 
