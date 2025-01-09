@@ -1,9 +1,11 @@
 """Take notes while cooking a recipe."""
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 
 from pydantic import BaseModel, Field
+
+from recipamatic.utils.datetime_ import format_time_delta
 
 
 class Note(BaseModel):
@@ -37,3 +39,17 @@ class RecipeNote(BaseModel):
             text=text,
         )
         self.notes.append(note)
+
+    def to_string(self) -> str:
+        """Return a string representation of the recipe note.
+
+        Clean up the times before returning the string.
+        """
+        cns = []
+        for note in self.notes:
+            delta = note.timestamp - self.start_timestamp
+            # format the time as minutes and seconds
+            delta_f = format_time_delta(delta)
+            cn = f"{delta_f}: {note.text}"
+            cns.append(cn)
+        return "\n".join(cns)
