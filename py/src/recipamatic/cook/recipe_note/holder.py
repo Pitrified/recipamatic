@@ -11,6 +11,7 @@ from loguru import logger as lg
 
 from recipamatic.config.recipamatic_config import get_recipamatic_paths
 from recipamatic.cook.recipe_note.model import RecipeNote
+from recipamatic.utils.datetime_ import FMT_DATETIME
 from recipamatic.utils.pathlib_ import check_create_fol
 
 
@@ -33,7 +34,7 @@ class RecipeNoteHolder:
     def generate_note_code(self) -> None:
         """Get the note code for the timestamp."""
         self.timestamp: datetime = datetime.now()
-        self.note_code = self.timestamp.strftime("%Y%m%d_%H%M%S")
+        self.note_code = self.timestamp.strftime(FMT_DATETIME)
 
     def build_note_fp(self) -> Path:
         """Build the file path for the note."""
