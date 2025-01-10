@@ -4,7 +4,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from loguru import logger as lg
 
-from recipamatic.api.crud import load_recipe, load_recipe_list
+from recipamatic.api.crud import create_recipe_note, load_recipe, load_recipe_list
 from recipamatic.api.models import RecipeInfoMini, RecipeSource
 from recipamatic.cook.recipe_core.recipe_core import RecipeCore
 
@@ -41,3 +41,11 @@ async def show_recipe(code: str) -> RecipeCore:
     if recipe is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
     return recipe
+
+
+@app.post("/recipe_note_create", response_model=str)
+async def create_note() -> str:
+    """Endpoint to create a new recipe note."""
+    lg.debug(f"create_note")
+    note_code = create_recipe_note()
+    return note_code

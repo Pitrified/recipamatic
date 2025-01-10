@@ -6,6 +6,8 @@ We do not have a real database so we just read a local JSON file.
 from recipamatic.api.models import RecipeInfoMini, RecipeSource
 from recipamatic.config.recipamatic_config import get_recipamatic_paths
 from recipamatic.cook.recipe_core.recipe_core import RecipeCore
+from recipamatic.cook.recipe_note.holder import RecipeNoteHolder
+from recipamatic.cook.recipe_note.model import RecipeNote
 
 
 def load_recipe_list() -> list[RecipeInfoMini]:
@@ -37,3 +39,9 @@ def load_recipe(code: str) -> RecipeCore | None:
     rc_fp = recipe_fol / f"recipe_core.json"
     rc = RecipeCore.model_validate_json(rc_fp.read_text())
     return rc
+
+
+def create_recipe_note() -> str:
+    """Create a new recipe note."""
+    rnh = RecipeNoteHolder.new_note()
+    return rnh.note_code
