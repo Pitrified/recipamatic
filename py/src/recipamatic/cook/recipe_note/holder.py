@@ -59,11 +59,9 @@ class RecipeNoteHolder:
         """Load the note from the file."""
         note_fp = self.build_note_fp()
 
-        # if the file is not found, create a new note
+        # if the file is not found, fails
         if not note_fp.exists():
-            lg.warning(f"Note not found: {note_fp}, creating it")
-            self.create_note()
-            return
+            raise FileNotFoundError(f"Note not found: {note_fp}")
 
         # load the note from the file
         self.note = RecipeNote.model_validate_json(note_fp.read_text())
