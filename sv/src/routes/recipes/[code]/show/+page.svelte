@@ -1,10 +1,10 @@
 <!-- src/routes/recipes/[code]/show/+page.svelte -->
 <script lang="ts">
-  import { page } from '$app/stores';
-  import { API_BASE_URL } from '$lib/constants';
-  import type { RecipeCore } from '$lib/models/recipe_core';
-  import { onMount } from 'svelte';
-  import RecipeShow from '$components/recipe_core/RecipeShow.svelte';
+  import { page } from "$app/stores";
+  import { API_BASE_URL } from "$lib/constants";
+  import type { RecipeCore } from "$lib/models/recipe_core";
+  import { onMount } from "svelte";
+  import RecipeShow from "$components/recipe_core/RecipeShow.svelte";
 
   let recipe: RecipeCore;
   let error: string | null = null;
@@ -14,21 +14,18 @@
 
   onMount(async () => {
     try {
-      console.log('Fetching recipe:', code);
+      console.log("Fetching recipe:", code);
       const response = await fetch(`${API_BASE_URL}/recipes/${code}/show`);
       if (!response.ok) {
         throw new Error(`Failed to fetch recipe: ${response.statusText}`);
       }
       recipe = await response.json();
     } catch (err) {
-      console.error('Error loading recipe:', err);
-      error = 'Failed to load recipe';
+      console.error("Error loading recipe:", err);
+      error = "Failed to load recipe";
     }
   });
 </script>
-
-<style>
-</style>
 
 {#if recipe}
   <RecipeShow {recipe} />
@@ -37,3 +34,6 @@
 {:else}
   <p>Loading...</p>
 {/if}
+
+<style>
+</style>
