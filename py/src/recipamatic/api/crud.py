@@ -45,3 +45,13 @@ def create_recipe_note() -> str:
     """Create a new recipe note."""
     rnh = RecipeNoteHolder.new_note()
     return rnh.note_code
+
+
+def load_recipe_note(code: str) -> RecipeNote | None:
+    """Get a recipe note by code."""
+    try:
+        rnh = RecipeNoteHolder.from_note_code(note_code=code).note
+        return rnh
+    except FileNotFoundError:
+        # if the note is not found, return None
+        return None
