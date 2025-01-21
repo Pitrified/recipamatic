@@ -6,6 +6,9 @@ from loguru import logger as lg
 import whisper
 from whisper import Whisper
 
+from recipamatic.api.models import AudioFile
+from recipamatic.config.recipamatic_config import get_recipamatic_paths
+
 
 class Whisperer:
     """Wrapper for whisper model."""
@@ -47,3 +50,16 @@ class Whisperer:
             lg.warning(f"Got {text} of type {type(text)}")
             raise ValueError(f"Expected text to be a string, but got {type(text)}")
         return text
+
+    def extract_text_from_audio_file(
+        self,
+        audio_file: AudioFile,
+        **kwargs,
+    ) -> str:
+        """Extract text from audio file."""
+        audio_fol = get_recipamatic_paths().notes_fol
+        audio_fp = audio_fol / audio_file.filename
+        # save the bytes to a file
+        with open(audio_fp, "wb") as f:
+            f.write(audio_file.content)
+        return self.extract_text(audio_fp, **kwargs)
