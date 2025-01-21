@@ -18,3 +18,10 @@ class RecipeInfoMini(BaseModel):
     name: str = Field(..., description="The name of the recipe.")
     source: RecipeSource = Field(..., description="The source of the recipe.")
     code: str = Field(..., description="The code of the recipe.")
+
+
+class AudioFile(BaseModel):
+    filename: str = Field(..., description="The name of the audio file.")
+    content_type: str = Field(..., description="The content type of the audio file.")
+    size: int = Field(..., description="The size of the audio file.")
+    content: bytes = Field(..., description="The content of the audio file.")

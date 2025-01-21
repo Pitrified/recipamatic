@@ -1,6 +1,6 @@
 """FastAPI backend for the Recipamatic API."""
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from loguru import logger as lg
 
@@ -10,7 +10,7 @@ from recipamatic.api.crud import (
     load_recipe_list,
     load_recipe_note,
 )
-from recipamatic.api.models import RecipeInfoMini
+from recipamatic.api.models import AudioFile, RecipeInfoMini
 from recipamatic.cook.recipe_core.recipe_core import RecipeCore
 from recipamatic.cook.recipe_note.model import RecipeNote
 
@@ -65,3 +65,35 @@ async def create_note() -> str:
     lg.debug(f"create_note")
     note_code = create_recipe_note()
     return note_code
+
+
+@app.post("/recipe_note/{code}/update", response_model=RecipeNote)
+async def update_note(
+    code: str,
+    audio_file: UploadFile,
+) -> RecipeNote:
+    """Endpoint to update a recipe note."""
+
+    # Read the file content as binary
+    file_content = await audio_file.read()
+
+    if audio_file.filename is None or audio_file.content_type is None:
+        raise HTTPException(
+            status_code=400, detail="Filename and content type are required"
+        )
+
+    # Populate the Pydantic model
+    file_details = AudioFile(
+        filename=audio_file.filename,
+        content_type=audio_file.content_type,
+        size=len(file_content),
+        content=file_content,
+    )
+    lg.debug(f"update_note {code} {file_details.filename} {file_details.size}")
+
+    # parse the model
+    # TODO
+    # whisperer
+    # update the note
+
+    return RecipeNote()

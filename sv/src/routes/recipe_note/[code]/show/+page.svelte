@@ -4,6 +4,7 @@
   import RecipeNoteShow from "$components/recipe_note/RecipeNoteShow.svelte";
   import type { RecipeNote } from "$lib/models/recipe_note";
   import { API_BASE_URL } from "$lib/constants";
+  import AudioRecorder from "$components/audio/AudioRecorder.svelte";
 
   let recipeNote: RecipeNote | null = null;
   let error: string | null = null;
@@ -37,3 +38,6 @@
 {:else}
   <p>Loading...</p>
 {/if}
+
+<!-- show an audio recorder button that sends to recipe_note/<code>/update -->
+<AudioRecorder fetchUrl={`${API_BASE_URL}/recipe_note/${code}/update`} />
