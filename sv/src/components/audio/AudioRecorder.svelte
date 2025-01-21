@@ -11,16 +11,19 @@
 
     const chunks: BlobPart[] = [];
     recorder.ondataavailable = (event: BlobEvent) => chunks.push(event.data);
-    recorder.onstop = () => {
+    recorder.onstop = async () => {
       audioBlob = new Blob(chunks, { type: "audio/webm" });
+      await sendAudio();
     };
 
     recorder.start();
     isRecording = true;
   };
 
-  const stopRecording = (): void => {
+  const stopRecordingAndSend = (): void => {
     if (recorder) {
+      // a side effect of stopping the recorder is that
+      // the onstop event will be triggered and the audio will be sent
       recorder.stop();
       isRecording = false;
     }
@@ -42,7 +45,6 @@
   };
 </script>
 
-<button on:click={isRecording ? stopRecording : startRecording}>
+<button on:click={isRecording ? stopRecordingAndSend : startRecording}>
   {isRecording ? "Stop Recording" : "Start Recording"}
 </button>
-<button on:click={sendAudio} disabled={!audioBlob}>Send Audio</button>
