@@ -9,10 +9,12 @@ from recipamatic.api.crud import (
     load_recipe,
     load_recipe_list,
     load_recipe_note,
+    load_recipe_note_holder,
 )
 from recipamatic.api.models import AudioFile, RecipeInfoMini
 from recipamatic.cook.recipe_core.recipe_core import RecipeCore
 from recipamatic.cook.recipe_note.model import RecipeNote
+from recipamatic.whisperer.whisperer import Whisperer
 
 app = FastAPI()
 
@@ -89,11 +91,25 @@ async def update_note(
         size=len(file_content),
         content=file_content,
     )
-    lg.debug(f"update_note {code} {file_details.filename} {file_details.size}")
+    lg.debug(
+        f"update_note {code} {file_details.filename} {file_details.size} {file_details.content_type}"
+    )
 
-    # parse the model
-    # TODO
-    # whisperer
+    # load the note
+    rnh = load_recipe_note_holder(code)
+    if rnh is None:
+        raise HTTPException(status_code=404, detail="Recipe note not found")
+    recipe_note = rnh.note
+
+    # transcribe with whisperer
+    whisperer = Whisperer()
+    text = whisperer.extract_text_from_audio_file(file_details)
+    lg.debug(f"Extracted text: {text}")
+
     # update the note
+    recipe_note.add_note(text)
+    lg.debug(f"Updated note: {recipe_note}")
+    # save the note
+    rnh.save_note()
 
-    return RecipeNote()
+    return recipe_note
