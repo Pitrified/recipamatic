@@ -1,5 +1,8 @@
 <script lang="ts">
+  import type { RecipeNote } from "$lib/models/recipe_note";
+
   export let fetchUrl: string;
+  export let onAudioUploaded: (newNote: RecipeNote) => void;
 
   let recorder: MediaRecorder | null = null;
   let audioBlob: Blob | null = null;
@@ -40,8 +43,9 @@
       body: formData,
     });
 
-    const result = await response.json();
-    console.log(result);
+    const newNote: RecipeNote = await response.json();
+    console.log(newNote);
+    onAudioUploaded(newNote);
   };
 </script>
 

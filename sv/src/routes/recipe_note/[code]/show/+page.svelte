@@ -29,6 +29,10 @@
       }
     }
   });
+
+  const handleAudioUploaded = (newNote: RecipeNote) => {
+    recipeNote = newNote;
+  };
 </script>
 
 {#if recipeNote}
@@ -40,4 +44,4 @@
 {/if}
 
 <!-- show an audio recorder button that sends to recipe_note/<code>/update -->
-<AudioRecorder fetchUrl={`${API_BASE_URL}/recipe_note/${code}/update`} />
+<AudioRecorder fetchUrl={`${API_BASE_URL}/recipe_note/${code}/update`} onAudioUploaded={handleAudioUploaded} />
