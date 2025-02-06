@@ -61,7 +61,7 @@ async def get_recipe_note(code: str) -> RecipeNote:
     return recipe_note
 
 
-@app.post("/recipe_note_create", response_model=str)
+@app.post("/recipe_note/create", response_model=str)
 async def create_note() -> str:
     """Endpoint to create a new recipe note."""
     lg.debug(f"create_note")
