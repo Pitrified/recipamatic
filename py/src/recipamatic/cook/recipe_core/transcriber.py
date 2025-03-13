@@ -15,6 +15,8 @@ Follow the specified format.
 Do not change the ingredients, quantities, or steps from the provided recipe.
 Do not change the language of the recipe.
 
+If the recipe is presented in several steps, you can combine the relevant ones into a single preparation.
+
 The recipe is: {recipe}
 """
 
