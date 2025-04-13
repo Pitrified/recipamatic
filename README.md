@@ -1,5 +1,15 @@
 # Recipamatic
 
+## Development Environment
+
+This project uses VSCode with Agent Mode optimizations. The following configuration files enhance the development experience:
+
+- `.vscode/settings.json` - Editor settings for Python and Svelte development
+- `.vscode/launch.json` - Debug configurations
+- `.vscode/tasks.json` - Common development tasks
+- `.vscode/extensions.json` - Recommended extensions
+- `.github/copilot/context.json` - Project context for AI assistants
+
 ## Installation
 
 To install the package, run the following command:

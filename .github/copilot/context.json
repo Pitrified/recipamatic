@@ -1,0 +1,23 @@
+{
+  "projectDescription": "Recipamatic - A recipe management application that processes and organizes recipes from different sources including Instagram posts and notes.",
+  "components": [
+    {
+      "name": "Python Backend",
+      "description": "Python-based backend logic for processing and analyzing recipe data",
+      "path": "py/src/recipamatic",
+      "language": "python"
+    },
+    {
+      "name": "SvelteKit Frontend",
+      "description": "Web interface built with SvelteKit for recipe browsing and management",
+      "path": "sv/src",
+      "language": "typescript"
+    },
+    {
+      "name": "Data Storage",
+      "description": "JSON-based data storage for recipes, notes, and Instagram posts",
+      "path": "data",
+      "language": "json"
+    }
+  ]
+}

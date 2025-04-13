@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/py/src"
+      }
+    },
+    {
+      "name": "Python: recipamatic module",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "recipamatic",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/py/src"
+      }
+    },
+    {
+      "name": "SvelteKit: Debug",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/sv",
+      "program": "${workspaceFolder}/sv/node_modules/@sveltejs/kit/bin/svelte-kit.js",
+      "args": [
+        "dev"
+      ],
+      "console": "integratedTerminal",
+      "restart": true
+    }
+  ]
+}

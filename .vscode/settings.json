@@ -1,0 +1,47 @@
+{
+    "cSpell.words": [
+        "fols",
+        "recipamatic",
+        "rglobber"
+    ],
+    // Python settings
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/py/src"
+    ],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestArgs": [
+        "py/tests"
+    ],
+    // Svelte settings
+    "svelte.enable-ts-plugin": true,
+    "prettier.documentSelectors": [
+        "**/*.svelte"
+    ],
+    "editor.formatOnSave": true,
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // General settings
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/node_modules": true,
+        "py/.venv": true
+    },
+    "editor.rulers": [
+        88,
+        100
+    ],
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+}

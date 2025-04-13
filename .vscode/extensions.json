@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "svelte.svelte-vscode",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "github.copilot",
+    "github.copilot-chat",
+    "ms-toolsai.jupyter",
+    "streetsidesoftware.code-spell-checker",
+    "tamasfe.even-better-toml",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

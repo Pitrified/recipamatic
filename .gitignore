@@ -11,7 +11,7 @@ data/
 *.json
 
 # ide
-.vscode/
+# .vscode/  # Commented out to track VSCode config files
 
 # project template meta files
 README_FINAL.md
