@@ -1,10 +1,9 @@
 """Take notes while cooking a recipe."""
 
-from datetime import datetime, timedelta
-from enum import Enum
+from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel, Field
-
 from recipamatic.utils.datetime_ import format_time_delta
 
 
@@ -31,6 +30,10 @@ class RecipeNote(BaseModel):
     notes: list[Note] = Field(
         default_factory=list,
         description="A list of notes for the recipe.",
+    )
+    user_id: Optional[str] = Field(
+        None,
+        description="The ID of the user who owns this recipe note.",
     )
 
     def add_note(self, text: str) -> None:

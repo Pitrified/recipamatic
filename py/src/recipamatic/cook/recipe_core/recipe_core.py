@@ -1,6 +1,7 @@
 """Recipe core is the main recipe: ingredients, instructions and notes."""
 
 from enum import Enum
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -60,3 +61,15 @@ class RecipeCore(BaseModel):
         description="A list of preparation sections, each with ingredients and steps.",
     )
     notes: list[str] | None = Field(None, description="Optional notes for the recipe.")
+    user_id: Optional[str] = Field(
+        None,
+        description="The ID of the user who owns this recipe.",
+    )
+    is_public: bool = Field(
+        True,
+        description="Whether this recipe is public (visible to all users) or private (visible only to the owner).",
+    )
+    source: Optional[str] = Field(
+        None,
+        description="The source of the recipe (e.g., 'Instagram', 'Voice Note', 'Manual Entry').",
+    )

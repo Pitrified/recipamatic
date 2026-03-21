@@ -43,5 +43,6 @@
         100
     ],
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "python.envFile": "/home/pmn/cred/recipamatic/.env"
 }

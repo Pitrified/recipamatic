@@ -37,4 +37,10 @@ export interface RecipeCore {
   preparations: Preparation_m[];
   /** Optional notes for the recipe. */
   notes?: string[];
+  /** The ID of the user who owns this recipe. */
+  user_id?: string;
+  /** Whether this recipe is public (visible to all users) or private (visible only to the owner). */
+  is_public: boolean;
+  /** The source of the recipe (e.g., 'Instagram', 'Voice Note', 'Manual Entry'). */
+  source?: string;
 }
